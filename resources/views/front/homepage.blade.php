@@ -64,17 +64,6 @@
                     <!-- Pager-->
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
                 </div>
-                  <div class="col-md-3">
-                  <div class="card">
-                    <div class="card-header">
-                      Kategoriler
-                    </div>
-                  </div>
-                  <ul class="list-group">
-                    <li class="list-group-item"><a href="#">First</a><div class="badge bg-danger float-right">12</div></li>
-                    <li class="list-group-item"><a href="#">Firt</a><span class="badge bg-danger float-right">12</span></li>
-                    <li class="list-group-item"><a href="#">First</a><span class="badge bg-danger float-right">12</span></li
-                  </ul>
-                </div>
 
+@include('front.widget.categoryWidget');
 @endsection

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Front\Homepage;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('front.homepage');
-});
+//Route::get('/', [Homepage::class, 'index']);
+Route::get('/', [Homepage::class, 'index']);
+
+/*Route::get('/', function() {
+  return "salamlar";
+});*/
