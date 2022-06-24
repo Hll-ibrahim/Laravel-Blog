@@ -15,7 +15,8 @@ use App\Http\Controllers\Front\Homepage;
 */
 
 //Route::get('/', [Homepage::class, 'index']);
-Route::get('/', [Homepage::class, 'index']);
+Route::get('/', [Homepage::class, 'index'])->name('homepage');
+Route::get('/{category}/{slug}', [Homepage::class, 'single'])->name('single');
 
 /*Route::get('/', function() {
   return "salamlar";

@@ -21,7 +21,7 @@ class ArticleSeeder extends Seeder
             'slug' = str_slug(title),
             'created_at' = now(),
             'updated_at' = now()
-          ]);*/
-        }
+          ]);
+        }*/
     }
 }

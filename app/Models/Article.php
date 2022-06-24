@@ -9,7 +9,7 @@ class Article extends Model
 {
     use HasFactory;
 
-    function getCtegory() {
+    function getCategory() {
       return $this->hasOne('App\Models\Category', 'id', 'category_id');
     }
 }
