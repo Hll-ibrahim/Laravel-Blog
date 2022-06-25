@@ -6,16 +6,11 @@
 @section('bg', $article->image)
 
 @section('content')
-
-
-
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-                    {{$article->content}}
-                    <p>Okuma Sayısı : <b>{{$article->hit}}</b></p>
-                </div>
-
-
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7">
+      {{$article->content}}
+      <p>Okuma Sayısı : <b>{{$article->hit}}</b></p>
+  </div>
 
 @include('front.widget.categoryWidget')
 @endsection

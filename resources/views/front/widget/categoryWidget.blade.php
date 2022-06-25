@@ -6,10 +6,10 @@
       </div>
       <ul class="list-group">
         @foreach($categories as $category)
-        <li class="list-group-item">
+        <li class="list-group-item @if(\Request::segment(2)==$category->slug) bg-warning @endif")>
           <div class="row">
-              <a href="#" class="col-10">{{$category->name}}</a>
-              <span class="badge bg-danger col-2">{{$category->articleCount()}}</span>
+              <a @if(\Request::segment(2)!=$category->slug) href="{{route('category', $category->slug)}}" @endif  class="col-md-10" >{{$category->name}}</a>
+              <span class="badge bg-danger col-md-2">{{$category->articleCount()}}</span>
           </div>
         </li>
         @endforeach
