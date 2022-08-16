@@ -19,7 +19,8 @@ class Articles extends Migration
             $table->string('title');
             $table->longText('content');
             $table->string('image');
-            $table->integer('hit');
+            $table->integer('hit')->default(0);
+            $table->integer('status')->default(0)->comment('0:pasif, 1:aktif');
             $table->string('slug');
             $table->timestamps();
             $table->foreign('category_id')
