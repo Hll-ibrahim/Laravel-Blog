@@ -3,8 +3,8 @@
         <div class="post-preview">
             <a href="{{ route('single', [ $article->getCategory->slug, $article->slug]) }}">
             <h2 class="post-title">{{$article->title}}</h2>
-            <img src="{{$article->image}}" alt="">
-            <h3 class="post-subtitle">{{Str::limit($article->content, 50)}}</h3>
+            <img src="{{$article->image}}" width="600">
+            <h3 class="post-subtitle">{!!Str::limit($article->content, 50)!!}</h3>
             </a>
             <p class="post-meta">
             <a href="#" class="mr-4">{{$article->getCategory->name}}</a>

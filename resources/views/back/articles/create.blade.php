@@ -34,7 +34,7 @@
             </div>
             <div class="form-group">
               <label>Makale İçeriği</label>
-              <textarea id="editor" class="form-control" name="content" rows="6" required></textarea>
+              <textarea id="editor" name="content" class="form-control" required></textarea>
             </div>
             <div class="form-group">
               <button type="submit" class="btn btn-primary btn-block">Makaleyi Oluştur</button>
