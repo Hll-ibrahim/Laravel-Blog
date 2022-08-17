@@ -20,6 +20,7 @@ Route::prefix('admin')->name('admin.')->middleware('isLogin')->group(function() 
 Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function() {
     Route::get('panel',[Dashboard::class, 'index'])->name('dashboard');
     Route::resource('makaleler', ArticleController::class);
+    Route::get('switch',[ArticleController::class, 'switch'])->name('switch');
     Route::get('cikis', [AuthController::class, 'logout'])->name('logout');
 });
 
