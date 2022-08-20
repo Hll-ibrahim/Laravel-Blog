@@ -33,7 +33,7 @@
                   <input class="switch" article-id="{{$article->id}}" type="checkbox"  data-on="<i class='fa fa-eye'></i>" data-onstyle="success" data-off="<i class='fa fa-eye-slash'></i>" data-offstyle="danger" @if($article->status==1) checked @endif data-toggle="toggle">
                 </td>
                 <td>
-                  <a href="{{route('single',[$article->getCategory->slug,$aicle->slug])}}" title="Görüntüle" class="btn btn-sm btn-primary"><i class="fa fa-book"></i></a>
+                  <a href="{{route('single',[$article->getCategory->slug,$article->slug])}}" title="Görüntüle" class="btn btn-sm btn-primary"><i class="fa fa-book"></i></a>
                   <a href="{{route('admin.makaleler.edit',$article->id)}}" title="Düzenle" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
                   <a href="{{route('admin.delete.article',$article->id)}}" title="Sil" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                 </td>
