@@ -51,6 +51,7 @@
                 </td>
                 <td>
                   <a category-id="{{$category->id}}" title="Kategoriyi Düzenle" class="btn btn-sm btn-primary edit-click"><i class="fa fa-edit text-white"></i></a>
+                  <a category-id="{{$category->id}}" category-name="{{$category->name}}" category-count="{{$category->articleCount()}}" title="Kategoriyi Sil" class="btn btn-sm btn-danger remove-click"><i class="fa fa-trash text-white"></i></a>
                 </td>
               </tr>
             @endforeach
@@ -89,6 +90,31 @@
 
       </div>
     </div>
+    <div id="deleteModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Kategoriyi Sil</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div id="articleAlert" class="modal-body alert-danger">
+            
+          </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+              <form action="{{route('admin.category.delete')}}" method="post">
+                @csrf
+                <input type="hidden" name="id" id="deleteId">
+                <button id="deleteButton" type="submit" class="btn btn-danger">Sil</button>
+              </form>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
 @endsection
 @section('css')
   <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
@@ -111,11 +137,25 @@
           }
         });
       });
-      $('#refresh').click(function() {
-        setTimeout(() => {
-          window.location.reload();
-        }, 3000);
-      })
+      $('.remove-click').click(function() {
+        id = $(this)[0].getAttribute('category-id');
+        count = $(this)[0].getAttribute('category-count');
+        name = $(this)[0].getAttribute('category-name');
+        if(id==9) {
+          $('#articleAlert').html(name+' kategorisi silinemez!');
+          $('#deleteButton').hide();
+          $('#deleteModal').modal();
+          return;
+        }
+        $('#deleteButton').show();
+        $('#deleteId').val(id);
+        $('#articleAlert').html('Emin misiniz?');
+        if(count>0) {
+          $('#articleAlert').html('Bu kategoriye ait '+count+' adet makale bulunmaktadır. Silmek istediğinize emin misiniz?');
+        }
+        $(' #deleteModal').modal();
+        
+      });
       $('.switch').change(function() {
         id = $(this)[0].getAttribute('category-id');
         statu = $(this).prop('checked');
