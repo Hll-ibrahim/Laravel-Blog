@@ -54,6 +54,21 @@
             </a>
         </li>
 
+        <li class="nav-item @if(Request::segment(2)== 'sayfalar') active @endif">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePage"
+                aria-expanded="true" aria-controls="collapsePage">
+                <i class="fas fa-fw fa-file"></i>
+                <span>Sayfa İşlemleri</span>
+            </a>
+            <div id="collapsePage" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Sayfa İşlemleri:</h6>
+                    <a class="collapse-item" href="{{route('admin.page.index')}}">Tüm Sayfalar</a>
+                    <a class="collapse-item" href="{{route('admin.makaleler.create')}}">Sayfa Oluştur</a>
+                </div>
+            </div>
+        </li>
+
         <!-- Divider -->
         <hr class="sidebar-divider">
 

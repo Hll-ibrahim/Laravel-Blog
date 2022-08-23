@@ -6,6 +6,7 @@ use App\Http\Controllers\Back\Dashboard;
 use App\Http\Controllers\Back\AuthController;
 use App\Http\Controllers\Back\ArticleController;
 use App\Http\Controllers\Back\CategoryController;
+use App\Http\Controllers\Back\PageController;
 
 
 /*
@@ -37,6 +38,10 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function() 
     Route::get('kategori/status',[CategoryController::class, 'switch'])->name('category.switch');
     Route::get('kategori/getData',[CategoryController::class, 'getData'])->name('category.getdata');
     Route::get('cikis', [AuthController::class, 'logout'])->name('logout');
+
+    // Sayfa Route
+    Route::get('/sayfalar', [PageController::class, 'index'])->name('page.index');
+    Route::get('sayfa/status',[PageController::class, 'switch'])->name('page.switch');
 });
 
 
