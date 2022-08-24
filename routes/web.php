@@ -41,7 +41,12 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function() 
 
     // Sayfa Route
     Route::get('/sayfalar', [PageController::class, 'index'])->name('page.index');
+    Route::get('/sayfalar/olustur', [PageController::class, 'create'])->name('page.create');
+    Route::get('/sayfalar/guncelle/{id}', [PageController::class, 'update'])->name('page.edit');
+    Route::post('/sayfalar/guncelle/{id}', [PageController::class, 'updatePost'])->name('page.edit.post');
+    Route::post('/sayfalar/olustur', [PageController::class, 'post'])->name('page.create.post');
     Route::get('sayfa/status',[PageController::class, 'switch'])->name('page.switch');
+    Route::get('/sayfa/sil/{id}', [PageController::class, 'delete'])->name('page.delete');
 });
 
 

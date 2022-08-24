@@ -28,8 +28,8 @@
                 </td>
                 <td>
                   <a href="{{route('page',$page->slug)}}" title="Görüntüle" class="btn btn-sm btn-primary"><i class="fa fa-book"></i></a>
-                  <a href="" title="Düzenle" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
-                  <a href="" title="Sil" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                  <a href="{{route('admin.page.edit',$page->id)}}" title="Düzenle" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
+                  <a href="{{route('admin.page.delete',$page->id)}}" title="Sil" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                 </td>
               </tr>
             @endforeach

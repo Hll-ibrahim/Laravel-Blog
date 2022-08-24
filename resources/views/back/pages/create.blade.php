@@ -1,5 +1,5 @@
 @extends('back.layouts.master')
-@section('title','Makale Oluştur')
+@section('title','Sayfa Oluştur')
 @section('content')
       <!-- DataTales Example -->
       <div class="card shadow mb-4">
@@ -13,31 +13,22 @@
               @endforeach
             </div>
           @endif
-          <form action="{{route('admin.makaleler.store')}}" method="post" enctype="multipart/form-data">
+          <form action="{{route('admin.page.create.post')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-              <label>Makale Başlığı</label>
+              <label>Sayfa Başlığı</label>
               <input type="text" class="form-control" name="title" required>
             </div>
             <div class="form-group">
-              <label>Makale Kategorisi</label>
-              <select name="category" class="form-control">
-                <option value="">Seçim Yapınız</option>
-                @foreach($categories as $category)
-                  <option value="{{$category->id}}">{{$category->name}}</option>
-                @endforeach
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Makale Resmi</label>
+              <label>Sayfa Resmi</label>
               <input type="file" class="form-control" name="image" required>
             </div>
             <div class="form-group">
-              <label>Makale İçeriği</label>
+              <label>Sayfa İçeriği</label>
               <textarea id="editor" name="content" class="form-control" required></textarea>
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-block">Makaleyi Oluştur</button>
+              <button type="submit" class="btn btn-primary btn-block">Sayfayı Oluştur</button>
             </div>
           </form>
         </div>

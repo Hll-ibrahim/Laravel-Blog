@@ -64,7 +64,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Sayfa İşlemleri:</h6>
                     <a class="collapse-item" href="{{route('admin.page.index')}}">Tüm Sayfalar</a>
-                    <a class="collapse-item" href="{{route('admin.makaleler.create')}}">Sayfa Oluştur</a>
+                    <a class="collapse-item" href="{{route('admin.page.create')}}">Sayfa Oluştur</a>
                 </div>
             </div>
         </li>
