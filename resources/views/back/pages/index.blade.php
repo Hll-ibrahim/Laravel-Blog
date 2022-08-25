@@ -8,19 +8,24 @@
       <a href="" class="btn btn-warning btn-sm float-right"><i class="fa fa-trash"></i> Silinen Makaleler</a>
     </div>
     <div class="card-body">
+      <div class="alert alert-success" id="orderSuccess">
+        Sıralama Başarıyla Güncellendi!
+      </div>
       <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
+              <th>Sıralama</th>
               <th>Fotoğraf</th>
               <th>Makale Başlığı</th> 
               <th>Durum</th>
               <th>İşlemler</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="orders">
             @foreach($pages as $page)
-              <tr>
+              <tr id="page_{{$page->id}}">
+                <td class="handle text-center" style="width: 3%;"><div class="d-none">{{$page->order}}</div><i class="fa fa-arrows-alt-v fa-3x "></i></td>
                 <td><img src="{{asset($page->image)}}" width="100"></td>
                 <td>{{$page->title}}</td>
                 <td>
@@ -45,13 +50,29 @@
 @endsection
 @section('js')
   <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script>
+    $('#orderSuccess').hide();
+    $('#orders').sortable({
+      handle:".handle",
+      update:function() {
+        var siralama = $('#orders').sortable('serialize');
+        $.get("{{route('admin.page.orders')}}?"+siralama,function(data,status){
+          $('#orderSuccess').show();
+          setTimeout(() => {
+            $('#orderSuccess').hide();
+          }, 2000);
+        });
+      }
+    });
+  </script>
   <script>
     $(function() {
       $('.switch').change(function() {
         id = $(this)[0].getAttribute('page-id');
         statu = $(this).prop('checked');
-        $.get("{{route('admin.page.switch')}}", {id:id, statu:statu}, function(data,status) {
-        })
+        $.get("{{route('admin.page.switch')}}", {id:id, statu:statu}, function(data,status) {})
       })
 
     })
