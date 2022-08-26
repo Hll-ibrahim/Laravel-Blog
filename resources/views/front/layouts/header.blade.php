@@ -8,6 +8,7 @@
         <meta name="author" content="" />
         <title>@yield('title', 'Blog Sitesi')</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="shortcut icon" href="{{asset($config->favicon)}}" type="image/x-icon" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -20,7 +21,9 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="{{route('homepage')}}">Blog Sitesi</a>
+                <a class="navbar-brand" href="{{route('homepage')}}">
+                    <img src="{{asset($config->logo)}}" alt="" width="100">
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>

@@ -7,7 +7,11 @@ use App\Http\Controllers\Back\AuthController;
 use App\Http\Controllers\Back\ArticleController;
 use App\Http\Controllers\Back\CategoryController;
 use App\Http\Controllers\Back\PageController;
+use App\Http\Controllers\Back\ConfigController;
 
+Route::get('site-bakimda', function () {
+    return view('front.offline');
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +41,6 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function() 
     Route::post('kategoriler/delete',[CategoryController::class, 'delete'])->name('category.delete');
     Route::get('kategori/status',[CategoryController::class, 'switch'])->name('category.switch');
     Route::get('kategori/getData',[CategoryController::class, 'getData'])->name('category.getdata');
-    Route::get('cikis', [AuthController::class, 'logout'])->name('logout');
 
     // Sayfa Route
     Route::get('/sayfalar', [PageController::class, 'index'])->name('page.index');
@@ -45,9 +48,14 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function() 
     Route::get('/sayfalar/guncelle/{id}', [PageController::class, 'update'])->name('page.edit');
     Route::post('/sayfalar/guncelle/{id}', [PageController::class, 'updatePost'])->name('page.edit.post');
     Route::post('/sayfalar/olustur', [PageController::class, 'post'])->name('page.create.post');
-    Route::get('sayfa/status',[PageController::class, 'switch'])->name('page.switch');
+    Route::get('/sayfa/status',[PageController::class, 'switch'])->name('page.switch');
     Route::get('/sayfa/sil/{id}', [PageController::class, 'delete'])->name('page.delete');
     Route::get('/sayfa/siralama', [PageController::class, 'orders'])->name('page.orders');
+
+    // Config Route
+    Route::get('/ayarlar', [ConfigController::class, 'index'])->name('config.index');
+    Route::post('/ayarlar/update', [ConfigController::class, 'update'])->name('config.update');
+    Route::get('/cikis', [AuthController::class, 'logout'])->name('logout');
 });
 
 

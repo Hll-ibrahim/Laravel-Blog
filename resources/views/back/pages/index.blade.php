@@ -60,10 +60,8 @@
         var siralama = $('#orders').sortable('serialize');
         $.get("{{route('admin.page.orders')}}?"+siralama,function(data,status){
           $('#orderSuccess').show();
-          setTimeout(() => {
-            $('#orderSuccess').hide();
-          }, 2000);
-        });
+          setTimeout(() => {$('#orderSuccess').hide();}, 2000);
+        }); 
       }
     });
   </script>

@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>@yield('title','Blog Sitesi Yönetim Paneli')</title>
-    @yield('css')
+    <title>@yield('title') - {{$config->title}}</title>
+    @yield('css')  
     <!-- Custom fonts for this template-->
     <link href="{{asset('back/')}}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -20,5 +20,6 @@
     <link href="{{asset('back/')}}/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="{{asset('back/')}}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     
+    <link rel="shortcut icon" href="{{asset($config->favicon)}}" type="image/x-icon" />
     
 </head>
