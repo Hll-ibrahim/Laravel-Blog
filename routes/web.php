@@ -13,6 +13,8 @@ Route::get('site-bakimda', function () {
     return view('front.offline');
 });
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Backend Routes
@@ -67,8 +69,8 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function() 
 
 //Route::get('/', [Homepage::class, 'index']);
 Route::get('/', [Homepage::class, 'index'])->name('homepage');
-Route::get('/iletisim', [Homepage::class, 'contact'])->name('contact');
-Route::post('/iletisim', [Homepage::class, 'contactpost'])->name('contact.post');
+Route::get('iletisim', [Homepage::class, 'contact'])->name('contact');
+Route::post('iletisim', [Homepage::class, 'contactpost'])->name('contact.post');
 Route::get('category/{category}', [Homepage::class, 'category'])->name('category');
-Route::get('/{category}/{slug}', [Homepage::class, 'single'])->name('single');
-Route::get('/{sayfa}',[Homepage::class, 'page'])->name('page');
+Route::get('{category}/{slug}', [Homepage::class, 'single'])->name('single');
+Route::get('{sayfa}',[Homepage::class, 'page'])->name('page');

@@ -48,7 +48,6 @@ class ArticleController extends Controller
 
         $article = new Article;
         $article->title = $request->title; 
-        $article->image = $request->image; 
         $article->content = $request->content; 
         $article->category_id = $request->category; 
         $article->slug = Str::slug($request->title);
@@ -103,7 +102,6 @@ class ArticleController extends Controller
 
         $article = Article::findOrFail($id);
         $article->title = $request->title; 
-        $article->image = $request->image; 
         $article->content = $request->content; 
         $article->category_id = $request->category; 
         $article->slug = Str::slug($request->title);

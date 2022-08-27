@@ -21,7 +21,7 @@
             </div>
             <div class="form-group">
               <label>Makale Kategorisi</label>
-              <select name="category" class="form-control">
+              <select name="category" class="form-control" required>
                 <option value="">Seçim Yapınız</option>
                 @foreach($categories as $category)
                   <option value="{{$category->id}}">{{$category->name}}</option>
